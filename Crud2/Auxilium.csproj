@@ -190,6 +190,7 @@
     <Compile Include="Repository\AulaRepository.cs" />
     <Compile Include="Repository\EstadosReposity.cs" />
     <Compile Include="Repository\InstituicaoEnsinoRepository.cs" />
+    <Compile Include="Repository\TipoUsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
