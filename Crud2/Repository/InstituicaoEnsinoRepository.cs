@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Crud2.Models;
 using Crud2.Models;
 using System.Configuration;
-using MySql;
-using MySql.Data;
 using MySql.Data.MySqlClient;
-using System.Collections;
 
 namespace Crud2.Repository
 {
