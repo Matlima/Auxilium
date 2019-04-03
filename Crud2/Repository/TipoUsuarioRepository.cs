@@ -65,7 +65,33 @@ namespace Crud2.Repository
             {
                 CN.Close();
             }
+        }
 
+        public TipoUsuarioModel selectId(TipoUsuarioModel tipo)
+        {
+            MySqlConnection CN = new MySqlConnection(Con);
+            MySqlCommand Com = CN.CreateCommand();
+            Com.CommandText = "SELECT * FROM tipo_usuario WHERE id=@id";
+            Com.Parameters.AddWithValue("@id", tipo.Idtipousuario);
+            TipoUsuarioModel tipoaux = new TipoUsuarioModel();
+            try
+            {
+                MySqlDataReader dr = Com.ExecuteReader();
+                while (dr.Read())
+                {
+                    tipoaux.Idtipousuario = Convert.ToInt32(dr["id"]);
+                    tipoaux.Descricao = (String)dr["descricao"];
+                }
+                return tipoaux;
+            }
+            catch (MySqlException ex)
+            {
+                throw MySqlException(ex.ToString);
+            }
+            finally
+            {
+                CN.Close();
+            }
         }
 
 

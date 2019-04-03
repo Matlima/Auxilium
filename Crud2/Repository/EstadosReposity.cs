@@ -70,8 +70,35 @@ namespace Crud2.Repository
             {
                 CN.Close();
             }
+        }
 
 
+        public EstadosModel selectId(EstadosModel estados)
+        {
+            MySqlConnection CN = new MySqlConnection(Con);
+            MySqlCommand Com = CN.CreateCommand();
+            Com.CommandText = "SELECT * FROM tb_estados WHERE id_estado=@id_estado";
+            EstadosModel estadoaux = new EstadosModel();
+            Com.Parameters.AddWithValue("@id_estado", estados.idestado);
+            try
+            {
+                MySqlDataReader dr = Com.ExecuteReader();
+                while (dr.Read())
+                {
+                    estadoaux.idestado = Convert.ToInt32(dr["id_estado"]);
+                    estadoaux.sigla = (String)dr["sigla"];
+                    estadoaux.descricao = (String)dr["descricao"];
+                }
+                return estadoaux;
+            }
+            catch (MySqlException ex)
+            {
+                throw MySqlException(ex.ToString);
+            }
+            finally
+            {
+                CN.Close();
+            }
         }
 
 
