@@ -6,6 +6,7 @@ using Crud2.Models;
 using System.Configuration;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Crud2.Repository
 {
@@ -92,7 +93,7 @@ namespace Crud2.Repository
             }
         }
 
-        public EnderecoModel selectId(EnderecoModel endereco)
+        public EnderecoModel SelectId(EnderecoModel endereco)
         {
             MySqlConnection CN = new MySqlConnection(Con);
             MySqlCommand Com = CN.CreateCommand();
@@ -105,19 +106,83 @@ namespace Crud2.Repository
                 while (dr.Read())
                 {
                     enderecoaux.Idendereco = Convert.ToInt32(dr["id_endereco"]);
+                    enderecoaux.Endereco = (String)dr["endereco"];
+                    enderecoaux.Bairro = (String)dr["bairro"];
+                    enderecoaux.Numero = (String)dr["numero"];
+                    enderecoaux.Cidade = (String)dr["cidade"];
+                    enderecoaux.Estado.idestado = Convert.ToInt32(dr["fk_estados"]);
                 }
+                return enderecoaux;
+            }
+            catch (MySqlException ex)
+            {
+                throw MySqlException(ex.ToString);
+            }
+            finally
+            {
+                CN.Close();
             }
 
         }
 
+        public List<EnderecoModel> SelectAll()
+        {
+            MySqlConnection CN = new MySqlConnection(Con);
+            MySqlCommand Com = CN.CreateCommand();
+            Com.CommandText = "SELECT * FROM tb_endereco";            
+            List<EnderecoModel> listasEndereco = new List<EnderecoModel>();
+            try
+            {
 
+                MySqlDataReader dr = Com.ExecuteReader();
+                while (dr.Read())
+                {
+                    EnderecoModel enderecoaux = new EnderecoModel();
+                    enderecoaux.Idendereco = Convert.ToInt32(dr["id_endereco"]);
+                    enderecoaux.Endereco = (String)dr["endereco"];
+                    enderecoaux.Bairro = (String)dr["bairro"];
+                    enderecoaux.Numero = (String)dr["numero"];
+                    enderecoaux.Cidade = (String)dr["cidade"];
+                    enderecoaux.Estado.idestado = Convert.ToInt32(dr["fk_estados"]);
+                    listasEndereco.Add(enderecoaux);
+                }
+                return listasEndereco;
+            }
+            catch (MySqlException ex)
+            {
+                throw MySqlException(ex.ToString);
+            }
+            finally
+            {
+                CN.Close();
+            }
 
+        }
 
-
-
-
-
-
+        public DataTable SelectAllDt()
+        {
+            MySqlConnection CN = new MySqlConnection(Con);
+            MySqlCommand Com = CN.CreateCommand();
+            MySqlDataAdapter da;
+            Com.CommandText = "SELECT * FROM tb_endereco";
+            try
+            {
+                CN.Open();
+                Com = new MySqlCommand(Com.CommandText, CN);
+                da = new MySqlDataAdapter(Com);
+                DataTable Enderecos = new DataTable();
+                da.Fill(Enderecos);
+                return Enderecos;
+            }
+            catch (MySqlException ex)
+            {
+                throw MySqlException(ex.ToString);
+            }
+            finally
+            {
+                CN.Close();
+            }
+        }                          
 
         private Exception MySqlException(Func<string> toString)
         {

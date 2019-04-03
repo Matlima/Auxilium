@@ -14,7 +14,7 @@ namespace Crud2.Models
         public string Cidade { get; set; }
         public int Cep { get; set; }
         public EstadosModel Estado { get; set; }
-        public UsuarioModel Usuario { get; set; }
+        
 
     }
 }
