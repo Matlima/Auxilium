@@ -51,7 +51,7 @@ namespace Crud2.Repository
         {
             MySqlConnection CN = new MySqlConnection(Con);
             MySqlCommand Com = CN.CreateCommand();
-            Com.CommandText = "UPDATE tb_aula SET disciplina=@disciplina, assunto=@assunto, descricao=@descricao, data_solicitacao=@data_solicitacao, local_aula=@local_aula, horario=@horario, data_realizacao=@data_realizacao, concluida=@concluida";
+            Com.CommandText = "UPDATE tb_aula SET disciplina=@disciplina, assunto=@assunto, descricao=@descricao, data_solicitacao=@data_solicitacao, local_aula=@local_aula, horario=@horario, data_realizacao=@data_realizacao, concluida=@concluida WHERE id_aula=@id_aula";
             Com.Parameters.AddWithValue("@disciplina", aula.Disciplina);
             Com.Parameters.AddWithValue("@assunto", aula.Assunto);
             Com.Parameters.AddWithValue("@descricao", aula.Descricao);
@@ -60,6 +60,7 @@ namespace Crud2.Repository
             Com.Parameters.AddWithValue("@horario", aula.Horario);
             Com.Parameters.AddWithValue("@data_realizacao", aula.DataRealizacao);
             Com.Parameters.AddWithValue("@concluida", aula.Concluida);
+            Com.Parameters.AddWithValue("@id_aula", aula.Idaula);
             try
             {
                 CN.Open();

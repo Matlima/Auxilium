@@ -44,8 +44,9 @@ namespace Crud2.Repository
         {
             MySqlConnection CN = new MySqlConnection(Con);
             MySqlCommand Com = CN.CreateCommand();
-            Com.CommandText = "UPDATE feedback SET descricao=@descricao";
+            Com.CommandText = "UPDATE feedback SET descricao=@descricao WHERE id=@id";
             Com.Parameters.AddWithValue("@descricao", feedback.Descricao);
+            Com.Parameters.AddWithValue("@id", feedback.Idfeedback);
             try
             {
                 CN.Open();
