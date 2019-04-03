@@ -192,6 +192,7 @@
     <Compile Include="Repository\EstadosReposity.cs" />
     <Compile Include="Repository\FeedbackRepository.cs" />
     <Compile Include="Repository\InstituicaoEnsinoRepository.cs" />
+    <Compile Include="Repository\TelefoneRepository.cs" />
     <Compile Include="Repository\TipoUsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
