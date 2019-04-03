@@ -76,7 +76,7 @@ namespace Crud2.Repository
             }
         }
 
-        public void delete(AulaModel aula)
+        public void Delete(AulaModel aula)
         {
             MySqlConnection CN = new MySqlConnection(Con);
             MySqlCommand Com = CN.CreateCommand();
@@ -97,7 +97,7 @@ namespace Crud2.Repository
             }                    
         }
 
-        public List<AulaModel> selectAll()
+        public List<AulaModel> SelectAll()
         {
             MySqlConnection CN = new MySqlConnection(Con);
             MySqlCommand Com = CN.CreateCommand();
@@ -132,7 +132,7 @@ namespace Crud2.Repository
             }            
         }
 
-        public AulaModel selectId(AulaModel aula)
+        public AulaModel SelectId(AulaModel aula)
         {
 
             MySqlConnection CN = new MySqlConnection(Con);

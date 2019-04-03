@@ -73,7 +73,7 @@ namespace Crud2.Repository
         }
 
 
-        public EstadosModel selectId(EstadosModel estados)
+        public EstadosModel SelectId(EstadosModel estados)
         {
             MySqlConnection CN = new MySqlConnection(Con);
             MySqlCommand Com = CN.CreateCommand();

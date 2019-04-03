@@ -39,7 +39,7 @@ namespace Crud2.Repository
             }
         }
 
-        public List<TipoUsuarioModel> selectAllList()
+        public List<TipoUsuarioModel> SelectAllList()
         {
             MySqlConnection CN = new MySqlConnection(Con);
             MySqlCommand Com = CN.CreateCommand();
@@ -67,7 +67,7 @@ namespace Crud2.Repository
             }
         }
 
-        public TipoUsuarioModel selectId(TipoUsuarioModel tipo)
+        public TipoUsuarioModel SelectId(TipoUsuarioModel tipo)
         {
             MySqlConnection CN = new MySqlConnection(Con);
             MySqlCommand Com = CN.CreateCommand();

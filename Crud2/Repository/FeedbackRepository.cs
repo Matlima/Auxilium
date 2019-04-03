@@ -84,7 +84,7 @@ namespace Crud2.Repository
         }
 
 
-        public List<FeedbackModel> selectAllList()
+        public List<FeedbackModel> SelectAllList()
         {
             MySqlConnection CN = new MySqlConnection(Con);
             MySqlCommand Com = CN.CreateCommand();
@@ -113,7 +113,7 @@ namespace Crud2.Repository
             }
         }
 
-        public FeedbackModel selectId(FeedbackModel feedback)
+        public FeedbackModel SelectId(FeedbackModel feedback)
         {
             MySqlConnection CN = new MySqlConnection(Con);
             MySqlCommand Com = CN.CreateCommand();
