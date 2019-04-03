@@ -194,6 +194,7 @@
     <Compile Include="Repository\InstituicaoEnsinoRepository.cs" />
     <Compile Include="Repository\TelefoneRepository.cs" />
     <Compile Include="Repository\TipoUsuarioRepository.cs" />
+    <Compile Include="Repository\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
