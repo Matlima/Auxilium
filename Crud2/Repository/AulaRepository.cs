@@ -136,7 +136,8 @@ namespace Crud2.Repository
 
             MySqlConnection CN = new MySqlConnection(Con);
             MySqlCommand Com = CN.CreateCommand();
-            Com.CommandText = "SELECT * FROM tb_aula WHERE id_aula";
+            Com.CommandText = "SELECT * FROM tb_aula WHERE id_aula=?id_aula";
+            Com.Parameters.AddWithValue("?id_aula", aula.Idaula);
             AulaModel aulaaux = new AulaModel();
             try
             {

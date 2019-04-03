@@ -14,8 +14,8 @@ namespace Crud2.Models
         public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
         public TipoUsuarioModel TipoUsuario { get; set; }
-        public EnderecoModel endereco { get; set; }
-        public InstituicaoEnsinoModel instituicaoEnsino { get; set; }
+        public EnderecoModel Endereco { get; set; }
+        public InstituicaoEnsinoModel InstituicaoEnsino { get; set; }
 
 
     }
